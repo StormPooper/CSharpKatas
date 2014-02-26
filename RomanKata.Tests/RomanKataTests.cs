@@ -40,5 +40,12 @@ namespace RomanKata.Tests
             var result = _converter.ToRomanNumeral(number);
             Assert.AreEqual(expected.ToUpper(), result);
         }
+
+        [Test]
+        public void I_ConvertedTo_One()
+        {
+            var result = _converter.ToArabic("I");
+            Assert.AreEqual(1, result);
+        }
     }
 }

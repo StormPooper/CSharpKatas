@@ -13,12 +13,12 @@ namespace RomanKata
             var remaining = number;
             for (var i = 0; i < _values.Length; i++)
             {
-                remaining = AppendHighestRomanNumeral(remaining, _values[i], _numerals[i], result);   
+                remaining = AppendRomanNumeral(remaining, _values[i], _numerals[i], result);   
             }
             return result.ToString().ToUpper();
         }
 
-        private static int AppendHighestRomanNumeral(int remaining, int value, string numeral, StringBuilder numerals)
+        private static int AppendRomanNumeral(int remaining, int value, string numeral, StringBuilder numerals)
         {
             var result = remaining;
             while (result >= value)
@@ -27,6 +27,11 @@ namespace RomanKata
                 result -= value;
             }
             return result;
+        }
+
+        public int ToArabic(string numerals)
+        {
+            return 1;
         }
     }
 }
