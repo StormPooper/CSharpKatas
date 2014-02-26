@@ -9,6 +9,7 @@ namespace RomanKata
             var remaining = number;
             var result = new StringBuilder();
 
+            remaining = AppendHighestRomanNumeral(remaining, 10, "X", result);
             remaining = AppendHighestRomanNumeral(remaining, 9, "IX", result);
             remaining = AppendHighestRomanNumeral(remaining, 5, "V", result);
             remaining = AppendHighestRomanNumeral(remaining, 4, "IV", result);
