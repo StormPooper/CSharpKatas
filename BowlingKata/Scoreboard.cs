@@ -2,15 +2,15 @@
 {
     public class Scoreboard
     {
-        private int _totalScore;
+        private int _score;
         public int CalculateScore()
         {
-            return _totalScore;
+            return _score;
         }
 
-        public void Roll(int score)
+        public void Roll(int pins)
         {
-            _totalScore += score;
+            _score += pins;
         }
     }
 }
