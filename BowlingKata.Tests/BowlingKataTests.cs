@@ -28,5 +28,16 @@ namespace BowlingKata.Tests
             }
             Assert.AreEqual(20, _scoreboard.CalculateScore());
         }
+
+        [Test]
+        public void AllFramesScore9_TotalScore90()
+        {
+            for (var i = 0; i < 10; i++)
+            {
+                _scoreboard.Roll(5);
+                _scoreboard.Roll(4);
+            }
+            Assert.AreEqual(90, _scoreboard.CalculateScore());
+        }
     }
 }
