@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace BowlingKata.Tests
 {
@@ -15,6 +10,17 @@ namespace BowlingKata.Tests
         {
             var scoreboard = new Scoreboard();
             Assert.AreEqual(0, scoreboard.CalculateScore());
+        }
+
+        [Test]
+        public void AllRollsScore1_TotalScore20()
+        {
+            var scoreboard = new Scoreboard();
+            for (var i = 0; i < 20; i++)
+            {
+                scoreboard.Roll(1);
+            }
+            Assert.AreEqual(20, scoreboard.CalculateScore());
         }
     }
 }
