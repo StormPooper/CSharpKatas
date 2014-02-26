@@ -16,22 +16,19 @@ namespace RomanKata
             {
                 remaining = AppendHighestRomanNumeral(remaining, _values[i], _numerals[i], result);   
             }
-            AddRemainingNumerals(remaining, result);
+
+            while(remaining > 0)
+            {
+                result.Append("I");
+                remaining--;
+            }
 
             return result.ToString();
         }
 
-        private static void AddRemainingNumerals(int remaining, StringBuilder result)
-        {
-            for (var i = 0; i < remaining; i++)
-            {
-                result.Append("I");
-            }
-        }
-
         private static int AppendHighestRomanNumeral(int remaining, int value, string numeral, StringBuilder result)
         {
-            if (remaining >= value)
+            while (remaining >= value)
             {
                 result.Append(numeral);
                 remaining -= value;
