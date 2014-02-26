@@ -25,10 +25,11 @@ namespace RomanKata.Tests
         [TestCase(29, "XXIX")]
         [TestCase(34, "XXXIV")]
         [TestCase(40, "XL")]
+        [TestCase(50, "L")]
         public void Number_ConvertedTo_RomanNumeral(int number, string expected)
         {
-            var romanNumerals = _converter.ToRomanNumeral(number);
-            Assert.AreEqual(expected, romanNumerals);
+            var result = _converter.ToRomanNumeral(number);
+            Assert.AreEqual(expected.ToUpper(), result);
         }
     }
 }

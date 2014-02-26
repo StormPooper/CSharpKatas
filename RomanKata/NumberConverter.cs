@@ -4,8 +4,8 @@ namespace RomanKata
 {
     public class NumberConverter
     {
-        private readonly int[] _values = { 40, 10, 9, 5, 4, 1 };
-        private readonly string[] _numerals = { "XL", "X", "IX", "V", "IV", "I" };
+        private readonly int[] _values = { 50, 40, 10, 9, 5, 4, 1 };
+        private readonly string[] _numerals = { "L", "XL", "X", "IX", "V", "IV", "I" };
 
         public string ToRomanNumeral(int number)
         {
@@ -15,7 +15,7 @@ namespace RomanKata
             {
                 remaining = AppendHighestRomanNumeral(remaining, _values[i], _numerals[i], result);   
             }
-            return result.ToString();
+            return result.ToString().ToUpper();
         }
 
         private static int AppendHighestRomanNumeral(int remaining, int value, string numeral, StringBuilder numerals)
