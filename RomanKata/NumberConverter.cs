@@ -6,7 +6,8 @@
         {
             var result = string.Empty;
 
-            if (number == 4) result = "IV";
+            if (number == 5) result = "V";
+            else if (number == 4) result = "IV";
             else {
                 for (var i = 0; i < number; i++)
                 {
