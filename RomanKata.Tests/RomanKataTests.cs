@@ -27,6 +27,14 @@ namespace RomanKata.Tests
         [TestCase(40, "XL")]
         [TestCase(50, "L")]
         [TestCase(64, "LXIV")]
+        [TestCase(90, "XC")]
+        [TestCase(100, "C")]
+        [TestCase(400, "CD")]
+        [TestCase(500, "D")]
+        [TestCase(900, "CM")]
+        [TestCase(1000, "M")]
+        [TestCase(1987, "MCMLXXXVII")]
+        [TestCase(2014, "MMXIV")]
         public void Number_ConvertedTo_RomanNumeral(int number, string expected)
         {
             var result = _converter.ToRomanNumeral(number);
