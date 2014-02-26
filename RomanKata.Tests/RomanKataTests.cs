@@ -13,28 +13,13 @@ namespace RomanKata.Tests
             _converter = new NumberConverter();
         }
 
-        [Test]
-        public void One_Becomes_I()
+        [TestCase(1, "I")]
+        [TestCase(2, "II")]
+        [TestCase(3, "III")]
+        public void Number_ConvertedTo_RomanNumeral(int number, string expected)
         {
-            const int number = 1;
             var romanNumerals = _converter.ToRomanNumeral(number);
-            Assert.AreEqual("I", romanNumerals);
-        }
-
-        [Test]
-        public void Two_Becomes_II()
-        {
-            const int number = 2;
-            var result = _converter.ToRomanNumeral(number);
-            Assert.AreEqual("II", result);
-        }
-
-        [Test]
-        public void Three_Becomes_III()
-        {
-            const int number = 3;
-            var result = _converter.ToRomanNumeral(number);
-            Assert.AreEqual("III", result);
+            Assert.AreEqual(expected, romanNumerals);
         }
     }
 }
