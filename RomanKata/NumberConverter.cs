@@ -4,15 +4,22 @@
     {
         public string ToRomanNumeral(int number)
         {
+            var left = number;
             var result = string.Empty;
 
-            if (number == 5) result = "V";
-            else if (number == 4) result = "IV";
-            else {
-                for (var i = 0; i < number; i++)
-                {
-                    result += "I";
-                }
+            if (left > 4)
+            {
+                result = "V";
+                left -= 5;
+            }
+            if (left > 3)
+            {
+                result = "IV";
+                left -= 4;
+            }
+            for (var i = 0; i < left; i++)
+            {
+                result += "I";
             }
 
             return result;
