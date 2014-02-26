@@ -34,20 +34,16 @@ namespace RomanKata
             var numerals = new StringBuilder(roman.ToUpper());
             var result = 0;
 
-            result = AddValueForNumeral(numerals, "IX", 9, result);
-            result = AddValueForNumeral(numerals, "VI", 6, result);
-            result = AddValueForNumeral(numerals, "V", 5, result);
-            result = AddValueForNumeral(numerals, "IV", 4, result);
-            while(numerals.Length > 0)
+            for (var i = 0; i < _numerals.Length; i++)
             {
-                result = AddValueForNumeral(numerals, "I", 1, result);
+                result = AddValueForNumeral(numerals, _numerals[i], _values[i], result);
             }
             return result;
         }
 
         private static int AddValueForNumeral(StringBuilder numerals, string numeral, int value, int result)
         {
-            if (numerals.ToString().StartsWith(numeral))
+            while (numerals.ToString().StartsWith(numeral))
             {
                 result += value;
                 numerals.Remove(0, numeral.Length);
