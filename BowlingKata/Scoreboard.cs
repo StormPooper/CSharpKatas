@@ -20,9 +20,9 @@ namespace BowlingKata
             _currentRoll = 0;
             for (var i = 0; i < NumberOfFrames; i++)
             {
-                if (RolledAStrike(_currentRoll))
+                if (RolledAStrike())
                     score = ScoreStrikeForFrame(score);
-                else if (RolledASpare(_currentRoll))
+                else if (RolledASpare())
                     score = ScoreSpareForFrame(score);
                 else
                     score = ScorePinsForFrame(score);
@@ -30,11 +30,21 @@ namespace BowlingKata
             return score;  
         }
 
+        private bool RolledAStrike()
+        {
+            return _pins[_currentRoll] == MaximumScoreForFrame;
+        }
+
         private int ScoreStrikeForFrame(int score)
         {
             score += _pins[_currentRoll] + _pins[_currentRoll + 1] + _pins[_currentRoll + 2];
             _currentRoll++;
             return score;
+        }
+
+        private bool RolledASpare()
+        {
+            return _pins[_currentRoll] + _pins[_currentRoll + 1] == MaximumScoreForFrame;
         }
 
         private int ScoreSpareForFrame(int score)
@@ -49,16 +59,6 @@ namespace BowlingKata
             score += _pins[_currentRoll] + _pins[_currentRoll + 1];
             _currentRoll += 2;
             return score;
-        }
-
-        private bool RolledASpare(int currentRoll)
-        {
-            return _pins[currentRoll] + _pins[currentRoll + 1] == MaximumScoreForFrame;
-        }
-
-        private bool RolledAStrike(int currentRoll)
-        {
-            return _pins[currentRoll] == MaximumScoreForFrame;
         }
     }
 }
