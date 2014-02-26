@@ -47,5 +47,12 @@ namespace RomanKata.Tests
             var result = _converter.ToArabic("I");
             Assert.AreEqual(1, result);
         }
+
+        [Test]
+        public void II_ConvertedTo_Two()
+        {
+            var result = _converter.ToArabic("II");
+            Assert.AreEqual(2, result);
+        }
     }
 }

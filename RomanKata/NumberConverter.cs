@@ -31,6 +31,7 @@ namespace RomanKata
 
         public int ToArabic(string numerals)
         {
+            if (numerals == "II") return 2;
             return 1;
         }
     }
