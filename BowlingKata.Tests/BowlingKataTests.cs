@@ -58,6 +58,13 @@ namespace BowlingKata.Tests
             Assert.AreEqual(29, _scoreboard.CalculateScore());
         }
 
+        [Test]
+        public void SpareInAllFrames_TotalScore150()
+        {
+            RollTwiceForNumberOfFrames(5, 5, 11);
+            Assert.AreEqual(150, _scoreboard.CalculateScore());
+        }
+
         private void RollStrikeForNumberOfFrames(int numberOfFrames)
         {
             for (var i = 0; i < numberOfFrames; i++)
