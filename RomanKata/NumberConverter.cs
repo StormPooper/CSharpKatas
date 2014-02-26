@@ -7,7 +7,7 @@ namespace RomanKata
         private readonly int[] _values = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
         private readonly string[] _numerals = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
 
-        public string ToRomanNumeral(int number)
+        public string ToRoman(int number)
         {
             var result = new StringBuilder();
             var remaining = number;

@@ -35,24 +35,18 @@ namespace RomanKata.Tests
         [TestCase(1000, "M")]
         [TestCase(1987, "MCMLXXXVII")]
         [TestCase(2014, "MMXIV")]
-        public void Number_ConvertedTo_RomanNumeral(int number, string expected)
+        public void Arabic_To_Roman(int arabic, string expected)
         {
-            var result = _converter.ToRomanNumeral(number);
+            var result = _converter.ToRoman(arabic);
             Assert.AreEqual(expected.ToUpper(), result);
         }
 
-        [Test]
-        public void I_ConvertedTo_One()
+        [TestCase("I", 1)]
+        [TestCase("II", 2)]
+        public void Roman_To_Arabic(string roman, int expected)
         {
-            var result = _converter.ToArabic("I");
-            Assert.AreEqual(1, result);
-        }
-
-        [Test]
-        public void II_ConvertedTo_Two()
-        {
-            var result = _converter.ToArabic("II");
-            Assert.AreEqual(2, result);
+            var result = _converter.ToArabic(roman);
+            Assert.AreEqual(expected, result);
         }
     }
 }
