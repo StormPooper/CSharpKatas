@@ -34,6 +34,7 @@ namespace RomanKata
             var numerals = new StringBuilder(roman.ToUpper());
             var result = 0;
 
+            result = AddValueForNumeral(numerals, "IX", 9, result);
             result = AddValueForNumeral(numerals, "VI", 6, result);
             result = AddValueForNumeral(numerals, "V", 5, result);
             result = AddValueForNumeral(numerals, "IV", 4, result);
