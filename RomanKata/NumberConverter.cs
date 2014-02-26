@@ -29,19 +29,28 @@ namespace RomanKata
             return result;
         }
 
-        public int ToArabic(string numerals)
+        public int ToArabic(string roman)
         {
+            var numerals = roman.ToUpper();
             var result = 0;
-            if (numerals == "V")
-                result += 5;
-            else if (numerals == "IV")
-                result += 4;
-            else
+
+            switch (numerals)
             {
-                for (var i = 0; i < numerals.Length; i++)
-                {
-                    result++;
-                }
+                case "VI":
+                    result += 6;
+                    break;
+                case "V":
+                    result += 5;
+                    break;
+                case "IV":
+                    result += 4;
+                    break;
+                default:
+                    for (var i = 0; i < numerals.Length; i++)
+                    {
+                        result++;
+                    }
+                    break;
             }
             return result;
         }
