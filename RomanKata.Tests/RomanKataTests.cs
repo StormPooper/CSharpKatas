@@ -28,5 +28,13 @@ namespace RomanKata.Tests
             var result = _converter.ToRomanNumeral(number);
             Assert.AreEqual("II", result);
         }
+
+        [Test]
+        public void Three_Becomes_III()
+        {
+            const int number = 3;
+            var result = _converter.ToRomanNumeral(number);
+            Assert.AreEqual("III", result);
+        }
     }
 }

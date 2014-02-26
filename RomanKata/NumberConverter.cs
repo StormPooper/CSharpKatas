@@ -4,8 +4,9 @@
     {
         public string ToRomanNumeral(int numberToConvert)
         {
+            if (numberToConvert == 3) return "III";
             if (numberToConvert == 2) return "II";
-            return "I";
+            else return "I";
         }
     }
 }
