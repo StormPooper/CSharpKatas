@@ -48,6 +48,21 @@ namespace RomanKata.Tests
         [TestCase("V", 5)]
         [TestCase("VI", 6)]
         [TestCase("IX", 9)]
+        [TestCase("X", 10)]
+        [TestCase("XVII", 17)]
+        [TestCase("XXIX", 29)]
+        [TestCase("XXXIV", 34)]
+        [TestCase("XL", 40)]
+        [TestCase("L", 50)]
+        [TestCase("LXIV", 64)]
+        [TestCase("XC", 90)]
+        [TestCase("C", 100)]
+        [TestCase("CD", 400)]
+        [TestCase("D", 500)]
+        [TestCase("CM", 900)]
+        [TestCase("M", 1000)]
+        [TestCase("MCMLXXXVII", 1987)]
+        [TestCase("MMXIV", 2014)]
         public void Roman_To_Arabic(string roman, int expected)
         {
             var result = _converter.ToArabic(roman);
