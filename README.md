@@ -1,4 +1,4 @@
-BowlingKata
+Bowling Kata
 ===========
 
 #### Kata:
