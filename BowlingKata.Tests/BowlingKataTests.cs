@@ -16,6 +16,7 @@ namespace BowlingKata.Tests
         [Test]
         public void AllRollsScore0_TotalScore0()
         {
+            RollTwiceForNumberOfFrames(0, 0, 10);
             Assert.AreEqual(0, _scoreboard.CalculateScore());
         }
 
@@ -34,11 +35,27 @@ namespace BowlingKata.Tests
         }
 
         [Test]
-        public void StrikeInFirstFrameAndAll1sAfter_TotalScore30()
+        public void StrikeInFirstFrameAndScore2InEachFrameAfter_TotalScore30()
         {
-            _scoreboard.Roll(10);
+            RollStrikeForNumberOfFrames(1);
             RollTwiceForNumberOfFrames(1, 1, 9);
             Assert.AreEqual(30, _scoreboard.CalculateScore());
+        }
+
+        [Test]
+        public void StrikeInEveryFrame_TotalScore300()
+        {
+            RollStrikeForNumberOfFrames(10);
+            RollTwiceForNumberOfFrames(10, 10, 1);
+            Assert.AreEqual(300, _scoreboard.CalculateScore());
+        }
+
+        private void RollStrikeForNumberOfFrames(int numberOfFrames)
+        {
+            for (var i = 0; i < numberOfFrames; i++)
+            {
+                _scoreboard.Roll(10);
+            }
         }
 
         private void RollTwiceForNumberOfFrames(int first, int second, int numberOfFrames)
