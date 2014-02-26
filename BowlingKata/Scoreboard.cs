@@ -18,7 +18,7 @@ namespace BowlingKata
         {
             var score = 0;
             _currentRoll = 0;
-            for (var i = 0; i < NumberOfFrames; i++)
+            for (var frame = 0; frame < NumberOfFrames; frame++)
             {
                 if (RolledAStrike())
                     score = ScoreStrikeForFrame(score);
