@@ -15,5 +15,16 @@ namespace RomanKata.Tests
 
             Assert.AreEqual("I", result);
         }
+
+        [Test]
+        public void Two_Becomes_II()
+        {
+            const int numberToConvert = 2;
+            var converter = new NumberConverter();
+
+            var result = converter.ToRomanNumeral(numberToConvert);
+
+            Assert.AreEqual("II", result);
+        }
     }
 }
