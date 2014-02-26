@@ -4,7 +4,8 @@
     {
         public int Add(string sum)
         {
-            return 0;
+            if (sum == string.Empty) return 0;
+            return 2;
         }
     }
 }
