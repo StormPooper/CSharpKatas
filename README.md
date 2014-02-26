@@ -5,7 +5,7 @@ Roman Numeral Kata
 * Convert any numeric value to the equivalent roman numeral sequence
 * Convert any roman numeral sequence to its numeric value
 
-Class library to convert roman numerals to arabic and vice-versa.
+C# class library to convert roman numerals to arabic and vice-versa.
 
 Build using TDD - see commit history for how it was built up (red-green-refactor). Tests included in the project.
 
