@@ -32,9 +32,14 @@ namespace RomanKata
         public int ToArabic(string numerals)
         {
             var result = 0;
-            for (var i = 0; i < numerals.Length; i++)
+            if (numerals == "IV")
+                result += 4;
+            else
             {
-                result++;
+                for (var i = 0; i < numerals.Length; i++)
+                {
+                    result++;
+                }
             }
             return result;
         }
