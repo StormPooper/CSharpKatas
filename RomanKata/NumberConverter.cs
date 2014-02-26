@@ -4,8 +4,8 @@ namespace RomanKata
 {
     public class NumberConverter
     {
-        private readonly int[] _values = { 10, 9, 5, 4, 1 };
-        private readonly string[] _numerals = { "X", "IX", "V", "IV", "I" };
+        private readonly int[] _values = { 40, 10, 9, 5, 4, 1 };
+        private readonly string[] _numerals = { "XL", "X", "IX", "V", "IV", "I" };
 
         public string ToRomanNumeral(int number)
         {
