@@ -4,9 +4,12 @@
     {
         public string ToRomanNumeral(int numberToConvert)
         {
-            if (numberToConvert == 3) return "III";
-            if (numberToConvert == 2) return "II";
-            else return "I";
+            var result = string.Empty;
+            for (var i = 0; i < numberToConvert; i++)
+            {
+                result += "I";
+            }
+            return result;
         }
     }
 }
