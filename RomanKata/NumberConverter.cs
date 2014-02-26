@@ -4,15 +4,18 @@ namespace RomanKata
 {
     public class NumberConverter
     {
+        private readonly int[] _values = { 10, 9, 5, 4 };
+        private readonly string[] _numerals = { "X", "IX", "V", "IV" };
+
         public string ToRomanNumeral(int number)
         {
             var remaining = number;
             var result = new StringBuilder();
 
-            remaining = AppendHighestRomanNumeral(remaining, 10, "X", result);
-            remaining = AppendHighestRomanNumeral(remaining, 9, "IX", result);
-            remaining = AppendHighestRomanNumeral(remaining, 5, "V", result);
-            remaining = AppendHighestRomanNumeral(remaining, 4, "IV", result);
+            for (var i = 0; i < remaining; i++)
+            {
+                remaining = AppendHighestRomanNumeral(remaining, _values[i], _numerals[i], result);   
+            }
             AddRemainingNumerals(remaining, result);
 
             return result.ToString();
