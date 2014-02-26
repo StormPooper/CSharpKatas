@@ -31,26 +31,25 @@ namespace RomanKata
 
         public int ToArabic(string roman)
         {
-            var numerals = roman.ToUpper();
+            var numerals = new StringBuilder(roman.ToUpper());
             var result = 0;
 
-            switch (numerals)
+            result = AddValueForNumeral(numerals, "VI", 6, result);
+            result = AddValueForNumeral(numerals, "V", 5, result);
+            result = AddValueForNumeral(numerals, "IV", 4, result);
+            while(numerals.Length > 0)
             {
-                case "VI":
-                    result += 6;
-                    break;
-                case "V":
-                    result += 5;
-                    break;
-                case "IV":
-                    result += 4;
-                    break;
-                default:
-                    for (var i = 0; i < numerals.Length; i++)
-                    {
-                        result++;
-                    }
-                    break;
+                result = AddValueForNumeral(numerals, "I", 1, result);
+            }
+            return result;
+        }
+
+        private static int AddValueForNumeral(StringBuilder numerals, string numeral, int value, int result)
+        {
+            if (numerals.ToString().StartsWith(numeral))
+            {
+                result += value;
+                numerals.Remove(0, numeral.Length);
             }
             return result;
         }
