@@ -22,22 +22,24 @@ namespace BowlingKata.Tests
         [Test]
         public void AllRollsScore1_TotalScore20()
         {
-            for (var i = 0; i < 20; i++)
-            {
-                _scoreboard.Roll(1);
-            }
+            RollForOneFrame(1, 1);
             Assert.AreEqual(20, _scoreboard.CalculateScore());
         }
 
         [Test]
         public void AllFramesScore9_TotalScore90()
         {
+            RollForOneFrame(5, 4);
+            Assert.AreEqual(90, _scoreboard.CalculateScore());
+        }
+
+        private void RollForOneFrame(int first, int second)
+        {
             for (var i = 0; i < 10; i++)
             {
-                _scoreboard.Roll(5);
-                _scoreboard.Roll(4);
+                _scoreboard.Roll(first);
+                _scoreboard.Roll(second);
             }
-            Assert.AreEqual(90, _scoreboard.CalculateScore());
         }
     }
 }
