@@ -6,9 +6,13 @@ namespace BowlingKata
     {
         private const int NumberOfFrames = 10;
         private const int MaximumScoreForFrame = 10;
-
         private readonly IList<int> _pins = new List<int>();
-        private int _currentRoll;
+                private int _currentRoll;
+
+        public void Roll(int pins)
+        {
+            _pins.Add(pins);
+        }
 
         public int CalculateScore()
         {
@@ -17,30 +21,30 @@ namespace BowlingKata
             for (var i = 0; i < NumberOfFrames; i++)
             {
                 if (RolledAStrike(_currentRoll))
-                    score = ScoreStrike(score);
+                    score = ScoreStrikeForFrame(score);
                 else if (RolledASpare(_currentRoll))
-                    score = ScoreSpare(score);
+                    score = ScoreSpareForFrame(score);
                 else
-                    score = ScoreNormalFrame(score);
+                    score = ScorePinsForFrame(score);
             }
             return score;  
         }
 
-        private int ScoreStrike(int score)
+        private int ScoreStrikeForFrame(int score)
         {
             score += _pins[_currentRoll] + _pins[_currentRoll + 1] + _pins[_currentRoll + 2];
             _currentRoll++;
             return score;
         }
 
-        private int ScoreSpare(int score)
+        private int ScoreSpareForFrame(int score)
         {
             score += _pins[_currentRoll] + _pins[_currentRoll + 1] + _pins[_currentRoll + 2];
             _currentRoll += 2;
             return score;
         }
 
-        private int ScoreNormalFrame(int score)
+        private int ScorePinsForFrame(int score)
         {
             score += _pins[_currentRoll] + _pins[_currentRoll + 1];
             _currentRoll += 2;
@@ -55,11 +59,6 @@ namespace BowlingKata
         private bool RolledAStrike(int currentRoll)
         {
             return _pins[currentRoll] == MaximumScoreForFrame;
-        }
-
-        public void Roll(int pins)
-        {
-            _pins.Add(pins);
         }
     }
 }
