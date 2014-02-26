@@ -7,7 +7,11 @@
             var left = number;
             var result = string.Empty;
 
-            if (left > 4)
+            if (left > 8)
+            {
+                result = "IX";
+                left -= 9;
+            }if (left > 4)
             {
                 result = "V";
                 left -= 5;

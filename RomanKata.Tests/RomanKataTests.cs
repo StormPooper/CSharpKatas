@@ -19,6 +19,7 @@ namespace RomanKata.Tests
         [TestCase(4, "IV")]
         [TestCase(5, "V")]
         [TestCase(6, "VI")]
+        [TestCase(9, "IX")]
         public void Number_ConvertedTo_RomanNumeral(int number, string expected)
         {
             var romanNumerals = _converter.ToRomanNumeral(number);
