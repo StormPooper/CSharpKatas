@@ -31,9 +31,12 @@ namespace RomanKata
 
         public int ToArabic(string numerals)
         {
-            if (numerals == "III") return 3;
-            if (numerals == "II") return 2;
-            return 1;
+            var result = 0;
+            for (var i = 0; i < numerals.Length; i++)
+            {
+                result++;
+            }
+            return result;
         }
     }
 }
