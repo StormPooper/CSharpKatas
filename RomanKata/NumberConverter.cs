@@ -32,7 +32,9 @@ namespace RomanKata
         public int ToArabic(string numerals)
         {
             var result = 0;
-            if (numerals == "IV")
+            if (numerals == "V")
+                result += 5;
+            else if (numerals == "IV")
                 result += 4;
             else
             {
