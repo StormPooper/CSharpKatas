@@ -4,36 +4,29 @@ namespace RomanKata
 {
     public class NumberConverter
     {
-        private readonly int[] _values = { 10, 9, 5, 4 };
-        private readonly string[] _numerals = { "X", "IX", "V", "IV" };
+        private readonly int[] _values = { 10, 9, 5, 4, 1 };
+        private readonly string[] _numerals = { "X", "IX", "V", "IV", "I" };
 
         public string ToRomanNumeral(int number)
         {
-            var remaining = number;
             var result = new StringBuilder();
-
-            for (var i = 0; i < remaining; i++)
+            var remaining = number;
+            for (var i = 0; i < _values.Length; i++)
             {
                 remaining = AppendHighestRomanNumeral(remaining, _values[i], _numerals[i], result);   
             }
-
-            while(remaining > 0)
-            {
-                result.Append("I");
-                remaining--;
-            }
-
             return result.ToString();
         }
 
-        private static int AppendHighestRomanNumeral(int remaining, int value, string numeral, StringBuilder result)
+        private static int AppendHighestRomanNumeral(int remaining, int value, string numeral, StringBuilder numerals)
         {
-            while (remaining >= value)
+            var result = remaining;
+            while (result >= value)
             {
-                result.Append(numeral);
-                remaining -= value;
+                numerals.Append(numeral);
+                result -= value;
             }
-            return remaining;
+            return result;
         }
     }
 }
