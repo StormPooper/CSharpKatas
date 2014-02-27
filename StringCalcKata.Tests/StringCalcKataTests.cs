@@ -33,11 +33,13 @@ namespace StringCalcKata.Tests
             Assert.AreEqual(expected, result);
         }
 
-        [Test]
-        public void CalculateAnyNumberSumWithNewLine()
+        [TestCase("2\n2,2", 6)]
+        [TestCase("8,16\n32", 56)]
+        [TestCase("8,16\n32,64\n128", 248)]
+        public void CalculateAnyNumberSumWithNewLine(string sum, int expected)
         {
-            var result = Calculator.Add("1\n2,3");
-            Assert.AreEqual(6, result);
+            var result = Calculator.Add(sum);
+            Assert.AreEqual(expected, result);
         }
     }
 }
