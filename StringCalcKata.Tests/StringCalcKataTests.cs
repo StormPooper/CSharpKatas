@@ -42,11 +42,14 @@ namespace StringCalcKata.Tests
             Assert.AreEqual(expected, result);
         }
 
-        [Test]
-        public void CalculateAnyNumberSumWithDelimiterDefined()
+
+        [TestCase("//;\n2;2;2", 6)]
+        [TestCase("// \n8 16 32", 56)]
+        [TestCase("//+\n8+16+32+64+128", 248)]
+        public void CalculateAnyNumberSumWithDelimiterDefined(string sum, int expected)
         {
-            var result = Calculator.Add("//;\n1;2");
-            Assert.AreEqual(3, result);
+            var result = Calculator.Add(sum);
+            Assert.AreEqual(expected, result);
         }
     }
 }
