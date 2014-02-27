@@ -1,16 +1,20 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 
 namespace StringCalcKata
 {
     public class StringCalculator
     {
+        private static readonly char[] DefaultDelimiters = { ',', '\n' };
+
         public int Add(string sum)
         {
             if (sum == string.Empty) return 0;
-            var delimiter = SetDelimiter(ref sum);
+            var calculation = new StringBuilder(sum);
+            var delimiter = Delimiter(calculation);
             var total = 0;
-            foreach (var value in sum.Split(delimiter).Select(number => Convert.ToInt32(number)))
+            foreach (var value in calculation.ToString().Split(delimiter).Select(number => Convert.ToInt32(number)))
             {
                 if(value < 0) throw new ArgumentOutOfRangeException(sum, "Negatives are not allowed.");
                 total += value;
@@ -18,15 +22,13 @@ namespace StringCalcKata
             return total;
         }
 
-        private static char[] SetDelimiter(ref string sum)
+        private static char[] Delimiter(StringBuilder sum)
         {
-            var separator = new[] {',', '\n'};
-            if (sum.StartsWith("//"))
-            {
-                separator = sum.ToCharArray(2, 1);
-                sum = sum.Remove(0, 4);
-            }
-            return separator;
+            var calculation = sum.ToString();
+            if (!calculation.StartsWith("//")) return DefaultDelimiters;
+            var delimiter = calculation.ToCharArray(2, 1);
+            sum.Remove(0, 4);
+            return delimiter;
         }
     }
 }
