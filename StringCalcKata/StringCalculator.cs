@@ -17,6 +17,7 @@ namespace StringCalcKata
             foreach (var value in calculation.ToString().Split(delimiter).Select(number => Convert.ToInt32(number)))
             {
                 if(value < 0) throw new ArgumentOutOfRangeException(sum, "Negatives are not allowed.");
+                if(value > 1000) continue;
                 total += value;
             }
             return total;

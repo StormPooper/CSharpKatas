@@ -60,5 +60,12 @@ namespace StringCalcKata.Tests
             var exception = Assert.Throws<ArgumentOutOfRangeException>(() => Calculator.Add("1,-1"));
             Assert.AreEqual("Negatives are not allowed.", exception.Message.Split('\r').First());
         }
+
+        [Test]
+        public void CalculatingWithANumberOverAThousandIgnoresTheNumber()
+        {
+            var result = Calculator.Add("2,1001");
+            Assert.AreEqual(2, result);
+        }
     }
 }
