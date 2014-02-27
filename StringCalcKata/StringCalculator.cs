@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace StringCalcKata
 {
@@ -26,19 +27,22 @@ namespace StringCalcKata
             return total;
         }
 
-        private static IEnumerable<int> NumbersFromString(StringBuilder calculation)
+        private static IEnumerable<int> NumbersFromString(StringBuilder sum)
         {
-            var delimiter = Delimiter(calculation);
-            return calculation.ToString().Split(delimiter, StringSplitOptions.None).Select(number => Convert.ToInt32(number));
+            var delimiter = ExtractDelimiters(sum);
+            return sum.ToString().Split(delimiter, StringSplitOptions.None).Select(number => Convert.ToInt32(number));
         }
 
-        private static string[] Delimiter(StringBuilder sum)
+        private static string[] ExtractDelimiters(StringBuilder sum)
         {
             var calculation = sum.ToString();
             if (!calculation.StartsWith(DelimStart)) return DefaultDelims;
-            var delimiter = new[] { calculation.Split(DelimEnds, StringSplitOptions.None).First().Remove(0, DelimStart.Length) };
-            sum.Remove(0, DelimStart.Length + DelimEnd.Length + delimiter[0].Length);
-            return delimiter;
+            var delim = Regex.Match(sum.ToString(), @"//(.*?)\n").Groups[1].Value;
+            sum.Remove(0, DelimStart.Length + DelimEnd.Length + delim.Length);
+            var multipleDelims = Regex.Matches(delim, @"\[(.*?)\]").Cast<Match>().Select(m => m.Groups[1].Value).ToArray();
+            return multipleDelims.Length > 0
+                ? multipleDelims
+                : new[] {delim};
         }
     }
 }
