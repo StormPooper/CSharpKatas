@@ -32,5 +32,12 @@ namespace StringCalcKata.Tests
             var result = Calculator.Add(sum);
             Assert.AreEqual(expected, result);
         }
+
+        [Test]
+        public void CalculateAnyNumberSumWithNewLine()
+        {
+            var result = Calculator.Add("1\n2,3");
+            Assert.AreEqual(6, result);
+        }
     }
 }

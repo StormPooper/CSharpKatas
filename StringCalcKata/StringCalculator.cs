@@ -9,7 +9,7 @@ namespace StringCalcKata
         {
             return sum == string.Empty
                 ? 0
-                : sum.Split(',').Sum(number => Convert.ToInt32(number));
+                : sum.Split(new []{ ',', '\n' }).Sum(number => Convert.ToInt32(number));
         }
     }
 }
