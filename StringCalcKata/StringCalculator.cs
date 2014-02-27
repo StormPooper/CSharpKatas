@@ -8,9 +8,12 @@ namespace StringCalcKata
         public int Add(string sum)
         {
             if (sum == string.Empty) return 0;
-            var first = sum.Split(',').First();
-            var second = sum.Split(',').Last();
-            return Convert.ToInt32(first) + Convert.ToInt32(second);
+            var total = 0;
+            foreach (var number in sum.Split(','))
+            {
+                total += Convert.ToInt32(number);
+            }
+            return total;
         }
     }
 }
