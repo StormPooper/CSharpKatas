@@ -41,5 +41,12 @@ namespace StringCalcKata.Tests
             var result = Calculator.Add(sum);
             Assert.AreEqual(expected, result);
         }
+
+        [Test]
+        public void CalculateAnyNumberSumWithDelimiterDefined()
+        {
+            var result = Calculator.Add("//;\n1;2");
+            Assert.AreEqual(3, result);
+        }
     }
 }

@@ -7,9 +7,14 @@ namespace StringCalcKata
     {
         public int Add(string sum)
         {
-            return sum == string.Empty
-                ? 0
-                : sum.Split(new []{ ',', '\n' }).Sum(number => Convert.ToInt32(number));
+            if (sum == string.Empty) return 0;
+            var separator = new []{ ',', '\n' };
+            if (sum.StartsWith("//"))
+            {
+                separator = sum.ToCharArray(2, 1);
+                sum = sum.Remove(0, 4);
+            }
+            return sum.Split(separator).Sum(number => Convert.ToInt32(number));
         }
     }
 }
