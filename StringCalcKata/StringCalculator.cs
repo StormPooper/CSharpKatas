@@ -11,6 +11,8 @@ namespace StringCalcKata
         private static readonly string[] DefaultDelims = { ",", "\n" };
         private const string DelimStart = "//";
         private const string DelimEnd = "\n";
+        private const string DelimWrapStart = @"\[";
+        private const string DelimWrapEnd = @"\]";
         private static readonly string[] DelimEnds = { DelimEnd };
 
         public int Add(string sum)
@@ -35,14 +37,13 @@ namespace StringCalcKata
 
         private static string[] ExtractDelimiters(StringBuilder sum)
         {
-            var calculation = sum.ToString();
-            if (!calculation.StartsWith(DelimStart)) return DefaultDelims;
-            var delim = Regex.Match(sum.ToString(), @"//(.*?)\n").Groups[1].Value;
-            sum.Remove(0, DelimStart.Length + DelimEnd.Length + delim.Length);
-            var multipleDelims = Regex.Matches(delim, @"\[(.*?)\]").Cast<Match>().Select(m => m.Groups[1].Value).ToArray();
+            var customDelim = Regex.Match(sum.ToString(), @"^" + DelimStart + @"(.*?)" + DelimEnd).Groups[1].Value;
+            if (customDelim.Length == 0) return DefaultDelims;
+            sum.Remove(0, DelimStart.Length + DelimEnd.Length + customDelim.Length);
+            var multipleDelims = Regex.Matches(customDelim, DelimWrapStart + @"(.*?)" + DelimWrapEnd).Cast<Match>().Select(m => m.Groups[1].Value).ToArray();
             return multipleDelims.Length > 0
                 ? multipleDelims
-                : new[] {delim};
+                : new[] {customDelim};
         }
     }
 }
