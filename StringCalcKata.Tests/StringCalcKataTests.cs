@@ -26,5 +26,12 @@ namespace StringCalcKata.Tests
             var result = Calculator.Add("1,1");
             Assert.AreEqual(2, result);
         }
+
+        [Test]
+        public void Two_Two_TotalFour()
+        {
+            var result = Calculator.Add("2,2");
+            Assert.AreEqual(4, result);
+        }
     }
 }
