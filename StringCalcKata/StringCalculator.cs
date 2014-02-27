@@ -7,13 +7,9 @@ namespace StringCalcKata
     {
         public int Add(string sum)
         {
-            if (sum == string.Empty) return 0;
-            var total = 0;
-            foreach (var number in sum.Split(','))
-            {
-                total += Convert.ToInt32(number);
-            }
-            return total;
+            return sum == string.Empty
+                ? 0
+                : sum.Split(',').Sum(number => Convert.ToInt32(number));
         }
     }
 }
