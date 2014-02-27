@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using System;
+using System.Linq;
+using NUnit.Framework;
 
 namespace StringCalcKata.Tests
 {
@@ -50,6 +52,13 @@ namespace StringCalcKata.Tests
         {
             var result = Calculator.Add(sum);
             Assert.AreEqual(expected, result);
+        }
+
+        [Test]
+        public void CalculatingWithANegativeNumber_ReturnsException()
+        {
+            var exception = Assert.Throws<ArgumentOutOfRangeException>(() => Calculator.Add("1,-1"));
+            Assert.AreEqual("Negatives are not allowed.", exception.Message.Split('\r').First());
         }
     }
 }

@@ -9,7 +9,13 @@ namespace StringCalcKata
         {
             if (sum == string.Empty) return 0;
             var delimiter = SetDelimiter(ref sum);
-            return sum.Split(delimiter).Sum(number => Convert.ToInt32(number));
+            var total = 0;
+            foreach (var value in sum.Split(delimiter).Select(number => Convert.ToInt32(number)))
+            {
+                if(value < 0) throw new ArgumentOutOfRangeException(sum, "Negatives are not allowed.");
+                total += value;
+            }
+            return total;
         }
 
         private static char[] SetDelimiter(ref string sum)
