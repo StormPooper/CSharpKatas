@@ -48,6 +48,7 @@ namespace StringCalcKata.Tests
         [TestCase("//;\n2;2;2", 6)]
         [TestCase("// \n8 16 32", 56)]
         [TestCase("//+\n8+16+32+64+128", 248)]
+        [TestCase("//split\n2split2", 4)]
         public void CalculateAnyNumberSumWithDelimiterDefined(string sum, int expected)
         {
             var result = Calculator.Add(sum);
