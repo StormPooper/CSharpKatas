@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanKata", "RomanKata\Roma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringCalcKata", "StringCalcKata\StringCalcKata.csproj", "{6AD30A04-F37C-41CA-9F8A-5F0911FE04A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SweetAssKata", "SweetAssKata\SweetAssKata.csproj", "{F902BDD6-D239-44CD-AE0B-D1F7028C161D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{6AD30A04-F37C-41CA-9F8A-5F0911FE04A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AD30A04-F37C-41CA-9F8A-5F0911FE04A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AD30A04-F37C-41CA-9F8A-5F0911FE04A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F902BDD6-D239-44CD-AE0B-D1F7028C161D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F902BDD6-D239-44CD-AE0B-D1F7028C161D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F902BDD6-D239-44CD-AE0B-D1F7028C161D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F902BDD6-D239-44CD-AE0B-D1F7028C161D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

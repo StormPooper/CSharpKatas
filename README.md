@@ -3,7 +3,7 @@ C# Katas
 
 A collection of .NET 4.0 C# Katas, build using TDD - see commit history for how it was built up (red-green-refactor - red step not commited). Tests included in each project.
 
-_By [Daniel Smith](http://www.stormpoopersmith.com)_
+_Code by [Daniel Smith](http://www.stormpoopersmith.com)_
 
 #### [Roman Numeral Kata](http://agilekatas.co.uk/katas/romannumerals-kata.html):
 * Convert any numeric value to the equivalent roman numeral sequence
@@ -24,3 +24,7 @@ _By [Daniel Smith](http://www.stormpoopersmith.com)_
 * If the bowler fails to knock down all ten pins they score the number of pins knocked down.
 * The scores accumulate through all ten frames.
 * At the last frame, if necessary, the pins are reset for one or two additional rolls to count the final bonus.
+
+#### [Sweet Ass-Kata](https://xkcd.com/37/)
+* "My hobby: Whenever anyone calls something an [adjective]-ass [noun], I mentally move the hyphen one word to the right."
+* "Man, that's a sweet ass-car."
