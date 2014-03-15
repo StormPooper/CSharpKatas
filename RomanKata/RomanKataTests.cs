@@ -35,6 +35,7 @@ namespace RomanKata
         [TestCase(1000, "M")]
         [TestCase(1987, "MCMLXXXVII")]
         [TestCase(2014, "MMXIV")]
+        [TestCase(3000, "MMM")]
         public void Arabic_To_Roman(int arabic, string expected)
         {
             var result = _converter.ToRoman(arabic);
@@ -63,6 +64,7 @@ namespace RomanKata
         [TestCase("M", 1000)]
         [TestCase("MCMLXXXVII", 1987)]
         [TestCase("MMXIV", 2014)]
+        [TestCase("MMM", 3000)]
         public void Roman_To_Arabic(string roman, int expected)
         {
             var result = _converter.ToArabic(roman);

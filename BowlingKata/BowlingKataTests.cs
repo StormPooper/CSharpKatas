@@ -14,7 +14,7 @@ namespace BowlingKata
         }
 
         [Test]
-        public void AllRollsScore0_TotalScore0()
+        public void GutterGame_TotalScore0()
         {
             RollTwiceForNumberOfFrames(0, 0, numberOfFrames: 10);
             Assert.AreEqual(0, _scoreboard.CalculateScore());
@@ -43,7 +43,7 @@ namespace BowlingKata
         }
 
         [Test]
-        public void StrikeInEveryFrame_TotalScore300()
+        public void PerfectGame_TotalScore300()
         {
             RollStrikeForNumberOfFrames(10);
             RollTwiceForNumberOfFrames(10, 10, numberOfFrames: 1);
@@ -63,6 +63,17 @@ namespace BowlingKata
         {
             RollTwiceForNumberOfFrames(5, 5, numberOfFrames: 11);
             Assert.AreEqual(150, _scoreboard.CalculateScore());
+        }
+
+        [Test]
+        public void ExampleRealGame_Total133()
+        {
+            var rolls = new[] {1, 4, 4, 5, 6, 4, 5, 5, 10, 0, 1, 7, 3, 6, 4, 10, 2, 8, 6};
+            foreach (var roll in rolls)
+            {
+                _scoreboard.Roll(roll);
+            }
+            Assert.AreEqual(133, _scoreboard.CalculateScore());
         }
 
         private void RollStrikeForNumberOfFrames(int numberOfFrames)
