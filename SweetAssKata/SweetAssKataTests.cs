@@ -18,5 +18,12 @@ namespace SweetAssKata
             var result = Hyphenator.MoveHyphen("nice-ass car");
             Assert.AreEqual("nice ass-car", result);
         }
+
+        [Test]
+        public void ManThatsASweetAss_Car_Becomes_ManThatsASweet_AssCar()
+        {
+            var result = Hyphenator.MoveHyphen("Man, that's a sweet-ass car.");
+            Assert.AreEqual("Man, that's a sweet ass-car.", result);
+        }
     }
 }

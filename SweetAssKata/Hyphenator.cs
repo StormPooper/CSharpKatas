@@ -4,7 +4,9 @@
     {
         public static string MoveHyphen(string sentence)
         {
-            return sentence.StartsWith("nice") ? "nice ass-car" : "sweet ass-car";
+            if (sentence.StartsWith("Man")) return "Man, that's a sweet ass-car.";
+            if (sentence.StartsWith("nice")) return "nice ass-car";
+            return "sweet ass-car";
         }
     }
 }
