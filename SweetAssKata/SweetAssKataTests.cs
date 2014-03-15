@@ -6,6 +6,7 @@ namespace SweetAssKata
     [TestFixture]
     public class SweetAssKataTests
     {
+        private const string Word = "ass";
         private readonly string[] _adjectives = { "sweet", "nice", "cool" };
         private readonly string[] _nouns = { "car", "bike", "train" };
 
@@ -16,7 +17,7 @@ namespace SweetAssKata
         [TestCase("Man, that sweet-ass car is a nice-ass vehicle.", "Man, that sweet ass-car is a nice ass-vehicle.")]
         public void SentenceMatchesPattern_HyphenIsMoved(string sentence, string expected)
         {
-            var result = sentence.MoveHyphen();
+            var result = sentence.MoveHyphen(Word);
             Assert.AreEqual(expected, result);
         }
 
@@ -27,7 +28,7 @@ namespace SweetAssKata
         [TestCase("sweet-ass")]
         public void SentenceDoesNotMatchPattern_HyphenIsNotMoved(string sentence)
         {
-            Assert.AreEqual(sentence, sentence.MoveHyphen());
+            Assert.AreEqual(sentence, sentence.MoveHyphen(Word));
         }
 
         [Test]
@@ -36,7 +37,7 @@ namespace SweetAssKata
             var adjective = GetRandomString(_adjectives);
             var noun = GetRandomString(_nouns);
             var sentence = "Man, that's a " + adjective + "-ass " + noun + ".";
-            var result = sentence.MoveHyphen();
+            var result = sentence.MoveHyphen(Word);
             Assert.AreEqual("Man, that's a " + adjective + " ass-" + noun + ".", result);
         }
 
