@@ -21,5 +21,12 @@ namespace SweetAssKata
         {
             Assert.AreEqual(sentence, sentence.MoveHyphen());
         }
+
+        [Test]
+        public void SentenceStartsWithHyphenAss_HyphenIsNotMoved()
+        {
+            const string sentence = "-ass car";
+            Assert.AreEqual(sentence, sentence.MoveHyphen());
+        }
     }
 }
