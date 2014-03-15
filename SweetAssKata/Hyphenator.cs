@@ -1,13 +1,17 @@
-﻿namespace SweetAssKata
+﻿using System.Text.RegularExpressions;
+
+namespace SweetAssKata
 {
     public static class StringExtension
     {
-        private const string HyphenatedWord = "-ass";
+        private const string BeforeHyphenatedWord = "-ass ";
+        private const string AfterHyphenatedWord = " ass-";
+
         public static string MoveHyphen(this string sentence)
         {
-            if (!sentence.Contains(HyphenatedWord) || sentence.StartsWith(HyphenatedWord) || sentence.EndsWith(HyphenatedWord)) return sentence;
-            if (sentence.ToLower().StartsWith("man")) return "Man, that's a sweet ass-car.";
-            return sentence.StartsWith("nice") ? "nice ass-car" : "sweet ass-car";
+            var match = Regex.Match(sentence, @"[^\s]+"  + BeforeHyphenatedWord + @"[^\s]+");
+            if (!match.Success) return sentence;
+            return sentence.Replace(BeforeHyphenatedWord, AfterHyphenatedWord);
         }
     }
 }
