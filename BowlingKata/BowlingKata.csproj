@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{409AECAF-645A-4AF7-AD71-D35B7A199908}</ProjectGuid>
+    <ProjectGuid>{40B7D492-418C-4867-A255-60A5E5AF0678}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StringCalcKata.Tests</RootNamespace>
-    <AssemblyName>StringCalcKata.Tests</AssemblyName>
+    <RootNamespace>BowlingKata</RootNamespace>
+    <AssemblyName>BowlingKata</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -42,17 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="StringCalcKataTests.cs" />
+    <Compile Include="BowlingKataTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\StringCalcKata\StringCalcKata.csproj">
-      <Project>{6AD30A04-F37C-41CA-9F8A-5F0911FE04A1}</Project>
-      <Name>StringCalcKata</Name>
-    </ProjectReference>
+    <Compile Include="Scoreboard.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

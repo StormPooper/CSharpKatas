@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace BowlingKata.Tests
+namespace BowlingKata
 {
     [TestFixture]
     public class BowlingKataTests

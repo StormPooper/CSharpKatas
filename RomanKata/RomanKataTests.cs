@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace RomanKata.Tests
+namespace RomanKata
 {
     [TestFixture]
     public class RomanKataTests

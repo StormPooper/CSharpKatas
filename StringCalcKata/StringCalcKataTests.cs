@@ -2,7 +2,7 @@
 using System.Linq;
 using NUnit.Framework;
 
-namespace StringCalcKata.Tests
+namespace StringCalcKata
 {
     [TestFixture]
     public class StringCalcKataTests
