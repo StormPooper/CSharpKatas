@@ -10,7 +10,7 @@ namespace SweetAssKata
         [TestCase("Man, that's a sweet-ass car.", "Man, that's a sweet ass-car.")]
         public void SentenceContainsSomethingAssSomething_HyphenIsMoved(string sentence, string expected)
         {
-            var result = Hyphenator.MoveHyphen(sentence);
+            var result = sentence.MoveHyphen();
             Assert.AreEqual(expected, result);
         }
     }
