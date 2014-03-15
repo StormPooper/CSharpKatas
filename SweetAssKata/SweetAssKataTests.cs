@@ -13,5 +13,12 @@ namespace SweetAssKata
             var result = sentence.MoveHyphen();
             Assert.AreEqual(expected, result);
         }
+
+        [Test]
+        public void SentenceDoesNotContainAss_HyphenIsNotMoved()
+        {
+            const string sentence = "Man, that is a sweet car.";
+            Assert.AreEqual(sentence, sentence.MoveHyphen());
+        }
     }
 }
