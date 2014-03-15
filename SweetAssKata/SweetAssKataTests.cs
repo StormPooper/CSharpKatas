@@ -12,36 +12,25 @@ namespace SweetAssKata
         [TestCase("sweet-ass car", "sweet ass-car")]
         [TestCase("nice-ass car", "nice ass-car")]
         [TestCase("Man, that's a sweet-ass car.", "Man, that's a sweet ass-car.")]
-        public void SentenceContainsSomethingAssSomething_HyphenIsMoved(string sentence, string expected)
+        [TestCase("Man, that sweet-ass car is a nice-ass vehicle.", "Man, that sweet ass-car is a nice ass-vehicle.")]
+        [TestCase("Man, that sweet-ass car is a nice-ass vehicle.", "Man, that sweet ass-car is a nice ass-vehicle.")]
+        public void SentenceMatchesPattern_HyphenIsMoved(string sentence, string expected)
         {
             var result = sentence.MoveHyphen();
             Assert.AreEqual(expected, result);
         }
 
-        [TestCase("Man, that's a sweet car.")]
         [TestCase("Man, that's a sweet ass car.")]
         [TestCase("Man, that's a sweetass car.")]
-        public void SentenceDoesNotContainHyphenAss_HyphenIsNotMoved(string sentence)
+        [TestCase("Man, that's a sweet car.")]
+        [TestCase("-ass car")]
+        [TestCase("sweet-ass")]
+        public void SentenceDoesNotMatchPattern_HyphenIsNotMoved(string sentence)
         {
             Assert.AreEqual(sentence, sentence.MoveHyphen());
         }
 
         [Test]
-        public void SentenceStartsWithHyphenAss_HyphenIsNotMoved()
-        {
-            const string sentence = "-ass car";
-            Assert.AreEqual(sentence, sentence.MoveHyphen());
-        }
-
-        [Test]
-        public void SentenceEndsWithHyphenAss_HyphenIsNotMoved()
-        {
-            const string sentence = "sweet-ass";
-            Assert.AreEqual(sentence, sentence.MoveHyphen());
-        }
-
-        [Test]
-        // this test is to force an implementation to be written
         public void SentenceHasRandomAdjectiveAndNoun_HyphenIsMoved()
         {
             var adjective = GetRandomString(_adjectives);
