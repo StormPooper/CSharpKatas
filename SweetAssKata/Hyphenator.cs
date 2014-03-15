@@ -4,14 +4,16 @@ namespace SweetAssKata
 {
     public static class StringExtension
     {
-        private const string BeforeHyphenatedWord = "-ass ";
-        private const string AfterHyphenatedWord = " ass-";
+        private const string WordToMoveHyphenAround = "ass";
 
         public static string MoveHyphen(this string sentence)
         {
-            var match = Regex.Match(sentence, @"[^\s]+"  + BeforeHyphenatedWord + @"[^\s]+");
-            if (!match.Success) return sentence;
-            return sentence.Replace(BeforeHyphenatedWord, AfterHyphenatedWord);
+            const string beforeHyphenatedWord = "-" + WordToMoveHyphenAround + " ";
+            const string afterHyphenatedWord = " " + WordToMoveHyphenAround + "-";
+            var match = Regex.Match(sentence, @"[^\s]+"  + beforeHyphenatedWord + @"[^\s]+");
+            return match.Success
+                ? sentence.Replace(beforeHyphenatedWord, afterHyphenatedWord)
+                : sentence;
         }
     }
 }
